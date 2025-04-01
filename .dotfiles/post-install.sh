@@ -28,6 +28,7 @@ brew install gh;  # GitHub CLI
 brew install git;  # newer version of git
 brew install git-delta;  # git pager, works better for larger files as a pager than difftastic
 brew install graphviz;  # turborepo uses this for visualizations
+brew install helix;  # like vim but with batteries included
 brew install imagemagick;
 brew install jc;  # turn command outputs into JSON (so you can then use jq)
 brew install jordanbaird-ice;  # hide items in the menu bar, better than HiddenBar?
