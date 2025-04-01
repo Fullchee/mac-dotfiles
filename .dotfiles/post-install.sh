@@ -64,6 +64,7 @@ brew install --cask kap;  # screen recorder
 brew install --cask karabiner-elements;  # key swapping, if just using caps lock as hyper, just use hyperkey
 brew install --cask keycastr;  # record keys
 brew install --cask messenger;
+brew install --cask notion;
 brew install --cask obsidian;
 brew install --cask postman;
 brew install --cask raycast;  # nicer app launcher/spotlight
