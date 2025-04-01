@@ -51,6 +51,10 @@ brew install --cask cursor;  # AI IDE
 brew install --cask dbngin;  # UI to turn on/off databases
 brew install --cask discord;
 brew install --cask figma;
+brew install --cask firefox;
+mkdir -p ~/Library/Application\ Support/Firefox/distribution
+cp ~/.dotfiles/post-install/firefox-policies.json ~/Library/Application\ Support/Firefox/distribution/policies.json
+
 brew install --cask font-hack-nerd-font;  # font with icons (for eza)
 brew install --cask font-jetbrains-mono;  # font with ligatures for coding
 brew install --cask freedom; # App and internet blocker (freedom.to)
@@ -90,7 +94,7 @@ mas install 1521432881; # Session (pomodoro timer)
 /opt/homebrew/bin/createuser -s postgres
 
 ### Calendar
-defaults write com.apple.iCal 'Default duration in minutes for new event' 30;
+defaults write com.apple.iCal "Default duration in minutes for new event" -int 30
 killall Calendar
 
 ### DOCK
