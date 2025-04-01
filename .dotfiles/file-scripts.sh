@@ -8,19 +8,6 @@ alias o.="o ."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# doesn't work
-# ls() {
-#   if [ "$#" -eq 0 ]; then
-#     eza --git --icons --grid --git-ignore
-#   elif [ "$1" = "-a" ] || [ "$1" = "--all" ]; then
-#     eza --icons --grid --all
-#   elif [ "$1" = "-l" ] || [ "$1" = "--long" ] || [ "$1" = "-la" ]; then
-#     eza -la --git --icons
-#   else
-#     echo "Invalid argument: $1"
-#   fi
-# }
-
 
 alias la="eza --icons --grid --all"
 alias ls='eza --git --icons --grid --git-ignore'
@@ -37,7 +24,6 @@ tree() {
 }
 
 
-export VIMRUNTIME=~/vim-runtime
 # start vim at the end of the file
 vimend () {
     vim '+normal Go' $1
@@ -82,14 +68,26 @@ function t() {
 # asdf/fileName.ext => fileName
 function extract-filename() {
 	fullfile="$1"
-	filename=$(basename "$fullfile")  # asdf/fileName.ext => fileName.ext
+	filename=$(basename "$fullfile")  # asdf/fieleName.ext => fileName.ext
 	echo "${filename%.*}"  # fileName.ext => fileName
 }
 
 
 # Hide/show all desktop icons (useful when presenting)
-alias hidedesktopicons="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktopicons="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias hide-desktop-icons="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias show-desktop-icons="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+update-raycast-config() {
+  # Find all rayconfig files in the current directory
+  	for file in Raycast\ 202*.rayconfig; do
+		# Check if the file exists and matches the pattern
+		if [[ -f "$file" ]]; then
+			mv "$file" "Raycast.rayconfig"
+			echo "Renamed '$file' to 'Raycast.rayconfig'"
+		fi
+	done
+}
+
 
 
 ## File Manipulation/editing START
