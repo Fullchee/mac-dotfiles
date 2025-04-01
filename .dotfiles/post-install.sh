@@ -231,3 +231,7 @@ git clone git@github.com:Fullchee/notes.git
 cd -
 
 osascript -e 'tell app "System Events" to log out'
+
+# add to /etc/hosts to block certain sites
+echo "0.0.0.0     www.webtoons.com webtoons.com" | sudo tee -a /etc/hosts
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder  # flush DNS
