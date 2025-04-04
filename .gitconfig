@@ -63,7 +63,7 @@
 	ui = auto
 [core]
 	editor = hx
-	excludesfile = /Users/fullchee/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = delta
 
 	# launch a process for each active repo

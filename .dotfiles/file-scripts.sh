@@ -141,7 +141,7 @@ function youtube-worst-audio() {
    	fi
 	for url in "$@"
 	do
-		~/yt-dlp --extract-audio -f "worstaudio[ext=webm]/worst" -o "%(title)s.%(ext)s" "$url"
+		~/yt-dlp --extract-audio --audio-format mp3 --audio-quality worst -o "%(title)s.%(ext)s" --parse-metadata "title:%(title)s.replace(r' \[[a-zA-Z0-9_-]{11}\]$', '')" "$url"
 	done
 }
 
@@ -169,7 +169,7 @@ function youtube-worst-video() {
 
 alias y3=youtube-worst-audio
 alias y4=youtube-worst-video
-alias youtube="cd /Users/fullchee/Library/CloudStorage/GoogleDrive-fullcheezhang@gmail.com/My\ Drive/YouTube"
+alias youtube="cd ~/Library/CloudStorage/GoogleDrive-fullcheezhang@gmail.com/My\ Drive/YouTube"
 
 mp3tomp4() {
     if [ -z "$1" ] ; then

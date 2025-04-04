@@ -30,6 +30,9 @@ www.theweathernetwork.com###twnmm-video-player
 www.theweathernetwork.com###video_player_pip_jw_wrapper
 
 ! 2023-05-26 https://www.youtube.com
+youtube.com##.ytd-comments
+youtube.com###contents
+youtube.com##.yt-chip-cloud-renderer
 www.youtube.com##.ytp-endscreen-content
 youtube.com##.ytd-banner-promo-renderer
 youtube.com##.ytp-pause-overlay
@@ -69,8 +72,3 @@ www.swyx.io##div.sm\:px-8.dark\:bg-gray-900.px-4.bg-gray-50.justify-center.flex-
 ! 2024-02-03 https://dev.to
 dev.to##.crayons-article-actions__inner
 dev.to##[aria-label="Author details"]
-
-! 2024-02-07 https://oneportal.rbhconnect.ca
-rbhconnect.ca##.Footer-fix
-rbhconnect.ca##.healthWarningContainer
-
