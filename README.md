@@ -79,7 +79,7 @@ save-crontab
   - Login Items & Extensions
     - Actions: enable ImagOptim
   - Location
-    - just allow weather and some System Settings to use locationasdfaZZzZZ\
+    - just allow weather and some System Settings to use location
 - Screenshot: cmd shift 5 -> Options
 
 ## Mac tips
