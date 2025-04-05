@@ -6,8 +6,7 @@
 2. Generate an SSH key
    1. `ssh-keygen`
 3. Copy the value of the SSH key
-   1. `cd ~/.ssh`
-   2. `cat ~/.ssh/id_ed25519.pub`
+   1. `cat ~/.ssh/id_ed25519.pub | pbcopy`
       1. if this changes, update [`.ssh/config`](https://github.com/Fullchee/mac-dotfiles/blob/main/.ssh/config)
 4. Add the key to GitHub
    1. https://github.com/settings/keys
