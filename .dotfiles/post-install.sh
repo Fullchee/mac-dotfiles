@@ -207,6 +207,10 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
+# local files that change a lot
+config ignore "Library/Application Support/Notion/notion.db"
+config ignore "Library/Preferences/com.googlecode.iterm2.plist"
+
 
 # install the latest stable Python version
 pyenv init
