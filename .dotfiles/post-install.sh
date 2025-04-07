@@ -48,6 +48,7 @@ brew install wget;
 brew install --cask anki;  # spaced repetition flash cards
 brew install --cask clop;  # auto optimizes images, videos and PDFs
 brew install --cask cursor;  # AI IDE
+brew install --cask db-browser-for-sqlite;
 brew install --cask dbngin;  # UI to turn on/off databases
 brew install --cask discord;
 brew install --cask figma;
