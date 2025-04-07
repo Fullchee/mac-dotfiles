@@ -78,14 +78,14 @@ alias hide-desktop-icons="defaults write com.apple.finder CreateDesktop -bool fa
 alias show-desktop-icons="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 update-raycast-config() {
-  # Find all rayconfig files in the current directory
+	cd ~/.dotfiles
   	for file in Raycast\ 202*.rayconfig; do
 		# Check if the file exists and matches the pattern
 		if [[ -f "$file" ]]; then
-			mv "$file" "Raycast.rayconfig"
-			echo "Renamed '$file' to 'Raycast.rayconfig'"
+			mv -f "$file" "Raycast.rayconfig"
 		fi
 	done
+	cd - > /dev/null
 }
 
 
