@@ -47,6 +47,11 @@ youtube.com##.ytp-show-tiles
 
 reddit.com##[aria-label="Home"]
 reddit.com##[data-testid="frontpage-sidebar"]
+reddit.com##reddit-sidebar-nav
+reddit.com###right-sidebar-container
+reddit.com##shreddit-gallery-carousel
+reddit.com##shreddit-feed
+
 
 tkdodo.eu##header
 tkdodo.eu##.gatsby-resp-image-wrapper
