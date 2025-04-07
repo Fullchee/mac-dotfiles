@@ -5,7 +5,7 @@
 
 " Step 1: Install Pathogen: https://github.com/tpope/vim-pathogen
 "execute pathogen#infect()
-@REM syntax on
+syntax on
 filetype plugin indent on
 
 
