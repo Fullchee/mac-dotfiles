@@ -152,7 +152,7 @@ function youtube-best-audio() {
    	fi
 	for url in "$@"
 	do
-		~/youtube-dl --extract-audio -f bestaudio -o "%(title)s.%(ext)s" "$url"
+		~/yt-dlp --extract-audio -f bestaudio -o "%(title)s.%(ext)s" "$url"
 	done
 }
 alias y3-best=youtube-best-audio
@@ -163,7 +163,9 @@ alias y3-best=youtube-best-audio
 function youtube-worst-video() {
 	for url in "$@"
 	do
-		~/youtube-dl -f "worstvideo[height>=480][ext=webm]+worstaudio[ext=webm]/worst" -o "%(title)s.%(ext)s" "$url"
+		yt-dlp -f "b[filesize_approx<50M]" --no-playlist $url || \
+		yt-dlp -f "b[height<=400]" --no-playlist $url || \
+		yt-dlp -f "b" --no-playlist $url
 	done
 }
 
