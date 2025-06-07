@@ -57,6 +57,12 @@ function rm_branch() {
 	git stash pop;
 }
 
+delete_current_branch() {
+	branch_name=`git rev-parse --abbrev-ref HEAD`;
+	git checkout main
+	git branch -D $branch_name
+}
+
 function delete_remote_branch() {
 	if read -q "choice?Delete remote branch? (Y/y)"; then
 		branch_name=`git rev-parse --abbrev-ref HEAD`;
