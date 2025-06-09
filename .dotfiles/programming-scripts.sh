@@ -105,6 +105,7 @@ killport() {
 
 ### Node
 
+eval "$(fnm env --use-on-cd --shell zsh)"
 # for npm global modules without sudo
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"
@@ -179,6 +180,7 @@ export PATH=$PATH:$ANDROID_SDK/platform-tools
 
 
 ## Python
+export PATH="$HOME/.pyenv/bin:$PATH"
 export PYTHONSTARTUP=$HOME/.dotfiles/repl_startup.py
 alias py=python
 eval "$(pyenv init --path)"

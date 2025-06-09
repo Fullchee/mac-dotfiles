@@ -8,10 +8,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-source $HOME/.dotfiles/file-scripts.sh
-source $HOME/.dotfiles/git-scripts.sh
-source $HOME/.dotfiles/programming-scripts.sh
-
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
@@ -30,5 +26,7 @@ export PATH="$PATH:$HOME/.local/bin"
 # fixes a problem on M1 macs
 # https://apple.stackexchange.com/questions/148901/why-does-my-brew-installation
 eval $(/opt/homebrew/bin/brew shellenv)
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+
+source $HOME/.dotfiles/file-scripts.sh
+source $HOME/.dotfiles/git-scripts.sh
+source $HOME/.dotfiles/programming-scripts.sh
