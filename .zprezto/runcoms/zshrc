@@ -30,3 +30,5 @@ eval $(/opt/homebrew/bin/brew shellenv)
 source $HOME/.dotfiles/file-scripts.sh
 source $HOME/.dotfiles/git-scripts.sh
 source $HOME/.dotfiles/programming-scripts.sh
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"

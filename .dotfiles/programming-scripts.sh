@@ -33,8 +33,6 @@ function lockafter() {
 ## Git: see git-scripts.sh
 
 ## Databases
-alias startmongo="brew services start mongodb-community"
-alias stopmongo="brew services stop mongodb-community"
 alias copydb=createdb -O postgres -T
 renamedb() {
   local old_db_name=$1
@@ -187,3 +185,6 @@ eval "$(pyenv init --path)"
 PIP_REQUIRE_VIRTUALENV=true
 alias ptpy=ptpython
 ## Python end
+
+# Added by Windsurf
+export PATH="/Users/fullcheezhang/.codeium/windsurf/bin:$PATH"

@@ -45,6 +45,7 @@ brew install vim;
 brew install wget;
 
 
+brew install --cask adobe-acrobat-reader;  # need adobe reader for government PDFs
 brew install --cask anki;  # spaced repetition flash cards
 brew install --cask clop;  # auto optimizes images, videos and PDFs
 brew install --cask cursor;  # AI IDE
