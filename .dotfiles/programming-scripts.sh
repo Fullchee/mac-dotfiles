@@ -1,8 +1,12 @@
-alias sz="source ~/.zshrc"
+# Table of contents
+# General
+# Android
+# Databases
+# Networking
 
-alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 
-# Add this to your ~/.zshrc file
+## -------- General --------
+
 function lockafter() {
   # Check if a parameter was provided
   if [[ $# -eq 0 ]]; then
@@ -26,14 +30,22 @@ function lockafter() {
   # Run the lock command in the background, make it harder to cancel
   nohup bash -c "sleep $seconds && pmset displaysleepnow" >/dev/null 2>&1 &
 }
+alias randomstring="openssl rand -base64 24"
+alias sz="source ~/.zshrc"
+alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 
+## -------- General end  --------
 
+## -------- Android --------
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK/tools
+export PATH=$PATH:$ANDROID_SDK/tools/bin
+export PATH=$PATH:$ANDROID_SDK/platform-tools
+## -------- Android end --------
 
-
-## Git: see git-scripts.sh
-
-## Databases
+## -------- Databases --------
 alias copydb=createdb -O postgres -T
+
 renamedb() {
   local old_db_name=$1
   local new_db_name=$2
@@ -56,17 +68,6 @@ renamedb() {
   fi
 }
 
-# Usage
-# rename_or_create_db old_database_name new_database_name
-
-
-# Usage
-# rename_or_create_db old_database_name new_database_name
-
-generate-psql-url() {
-	echo "postgresql://$REMOTE_DATABASE_USER:$REMOTE_DATABASE_PASSWORD@localhost:$LOCAL_DATABASE_PORT/$REMOTE_DATABASE_NAME"
-}
-
 alias killpostmaster="rm /usr/local/var/postgres/postmaster.pid"
 alias fixpsql="killpostmaster"
 
@@ -76,22 +77,14 @@ function mv_table {
   pg_dump -d $1 --no-owner --no-acl -Fc --table=$3 | pg_restore -d $2 --no-owner --no-acl --table=$3
 }
 
+## -------- Databases END --------
 
-## Databases end
+
+## -------- Networking --------
 
 alias rm-known-localhost="sed -i '' '/^\[localhost\]:56789/d' ~/.ssh/known_hosts"
 
-alias randomstring="openssl rand -base64 24"
-
 alias ip="echo Your ip is; dig +short myip.opendns.com @resolver1.opendns.com;"
-
-# `pmset displaysleepnow` doesn't work 😞
-alias lock-screen="osascript ~/learning/lock-screen.scpt"
-alias lock-in-25="(sleep 1500; lock-screen) &; disown %1"
-alias lockin25="lock-in-25"
-
-alias stopin30="sudo shutdown -s +30"
-
 
 killport() {
     if [ -z "$1" ] ; then
@@ -169,14 +162,6 @@ ssm () {
 }
 
 
-## Android
-export ANDROID_SDK=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_SDK/tools
-export PATH=$PATH:$ANDROID_SDK/tools/bin
-export PATH=$PATH:$ANDROID_SDK/platform-tools
-## Android end
-
-
 ## Python
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PYTHONSTARTUP=$HOME/.dotfiles/repl_startup.py
@@ -188,3 +173,30 @@ alias ptpy=ptpython
 
 # Added by Windsurf
 export PATH="/Users/fullcheezhang/.codeium/windsurf/bin:$PATH"
+
+
+## Screen time
+
+function lockafter() {
+  # Check if a parameter was provided
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: lockafter <minutes>"
+    echo "Example: lockafter 5 (locks after 5 minutes)"
+    return 1
+  fi
+
+  # Check if the parameter is a number
+  if [[ ! $1 =~ ^[0-9]+$ ]]; then
+    echo "Error: Please provide a valid number of minutes"
+    return 1
+  fi
+
+  # Convert minutes to seconds
+  local seconds=$(($1 * 60))
+
+  # Inform the user
+  echo "Your Mac will lock in $1 minute(s)."
+
+  # Run the lock command in the background, make it harder to cancel
+  nohup bash -c "sleep $seconds && pmset displaysleepnow" >/dev/null 2>&1 &
+}

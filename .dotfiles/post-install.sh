@@ -16,6 +16,7 @@ brew install cask;
 brew install coreutils;
 brew install choose-rust;  # eg: easily get the 3rd item in each line https://github.com/theryangeary/choose
 brew install difftastic;  # better git diff
+brew install duckdb;  # like sqlite for analytics and columnar data
 brew install entr;  # do something when a file changes https://jvns.ca/blog/2020/06/28/entr/
 brew install eza;  # better ls + tree with git and icons
 brew install fd;  # better find https://github.com/sharkdp/fd
@@ -47,6 +48,7 @@ brew install wget;
 
 brew install --cask adobe-acrobat-reader;  # need adobe reader for government PDFs
 brew install --cask anki;  # spaced repetition flash cards
+brew install --cask bruno;  # open source Postman
 brew install --cask clop;  # auto optimizes images, videos and PDFs
 brew install --cask cursor;  # AI IDE
 brew install --cask db-browser-for-sqlite;
@@ -91,6 +93,9 @@ mas install 540348655;  # Monosnap
 mas install 1122008420; # TableTool, view CSVs
 mas install 1521432881; # Session (pomodoro timer)
 
+brew services start postgresql
+/opt/homebrew/bin/createdb fullchee
+/opt/homebrew/bin/createdb fullcheezhang
 # when brew installs postgres, need to create a postgres user manually
 # https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
 /opt/homebrew/bin/createuser -s postgres
@@ -220,12 +225,9 @@ pyenv install $LATEST_PYTHON_VERSION
 pyenv global $LATEST_PYTHON_VERSION
 pyenv local $LATEST_PYTHON_VERSION
 
-pipx install poetry
-poetry completions zsh > ~/.zprezto/modules/completion/external/src/_poetry
-poetry self add poetry-dotenv-plugin
 
-python -m pip install --user pipenv
-python -m pip install --user ptpython  # better Python terminal CLI
+curl -LsSf https://astral.sh/uv/install.sh | sh  # uv: python package & project manager, like poetry, pdm
+pip install --user ptpython  # better Python terminal CLI
 
 # node
 curl -fsSL https://fnm.vercel.app/install | bash;
