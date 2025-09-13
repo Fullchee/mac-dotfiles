@@ -77,6 +77,7 @@ brew install --cask obsidian;
 brew install --cask postman;
 brew install --cask raycast;  # nicer app launcher/spotlight
 brew install --cask rectangle;  # change window sizes, nicer than Raycast's keyboard shortcuts
+brew install --cask tableplus;  # database GUI
 brew install --cask todoist;
 brew install --cask visual-studio-code;
 brew install --cask vlc;
