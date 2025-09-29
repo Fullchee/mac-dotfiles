@@ -39,9 +39,11 @@ brew install mas;  # mac app store CLI
 brew install pandoc;
 brew install pgcli;
 brew install pipx;  # for installing poetry
+brew install $(brew formulae | grep postgresql@ | tail -1);  # latest version of postgresql
 brew install pyenv;
 brew install tealdeer;  # tldr in rust
 tldr --update;  # initialize the tldr cache
+
 brew install vim;
 brew install wget;
 

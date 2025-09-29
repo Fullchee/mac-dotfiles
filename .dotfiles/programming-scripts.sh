@@ -111,6 +111,10 @@ function fnm-use() {
 eval "$(fnm env --use-on-cd)"
 
 ### pnpm
+setup_pnpm_corepack() {
+  npm install --global corepack@latest
+  corepack enable pnpm
+}
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 ### pnpm end

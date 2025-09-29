@@ -144,3 +144,5 @@ source "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias formaai="ulimit -Sn unlimited; python3 ~/backend/scripts/formaai-dev-tools/formaai.py"
 alias f="formaai"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
