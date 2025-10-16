@@ -39,7 +39,17 @@ brew install mas;  # mac app store CLI
 brew install pandoc;
 brew install pgcli;
 brew install pipx;  # for installing poetry
-brew install $(brew formulae | grep postgresql@ | tail -1);  # latest version of postgresql
+
+POSTGRES_NAME=$(brew formulae | grep postgresql@ | tail -1)
+brew install $POSTGRES_NAME  # latest version of postgresql
+brew services start postgresql
+echo 'export PATH="/opt/homebrew/opt/$POSTGRES_NAME/bin:$PATH"' >> ~/.dotfiles/programming-scripts.sh
+/opt/homebrew/opt/$POSTGRES_NAME/bin/createdb fullchee
+/opt/homebrew/opt/$POSTGRES_NAME/bin/createdb fullcheezhang
+# when brew installs postgres, need to create a postgres user manually
+# https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
+/opt/homebrew/bin/createuser -s postgres
+
 brew install pyenv;
 brew install tealdeer;  # tldr in rust
 tldr --update;  # initialize the tldr cache
@@ -47,15 +57,14 @@ tldr --update;  # initialize the tldr cache
 brew install vim;
 brew install wget;
 
-
 brew install --cask adobe-acrobat-reader;  # need adobe reader for government PDFs
 brew install --cask anki;  # spaced repetition flash cards
-brew install --cask bruno;  # open source Postman
 brew install --cask clop;  # auto optimizes images, videos and PDFs
 brew install --cask cursor;  # AI IDE
 brew install --cask db-browser-for-sqlite;
 brew install --cask dbngin;  # UI to turn on/off databases
 brew install --cask discord;
+brew install --cask docker;
 brew install --cask figma;
 brew install --cask firefox;
 mkdir -p ~/Library/Application\ Support/Firefox/distribution
@@ -95,13 +104,6 @@ mas install 1352778147; # BitWarden: app store version has more features, like T
 mas install 540348655;  # Monosnap
 mas install 1122008420; # TableTool, view CSVs
 mas install 1521432881; # Session (pomodoro timer)
-
-brew services start postgresql
-/opt/homebrew/bin/createdb fullchee
-/opt/homebrew/bin/createdb fullcheezhang
-# when brew installs postgres, need to create a postgres user manually
-# https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
-/opt/homebrew/bin/createuser -s postgres
 
 ### Calendar
 defaults write com.apple.iCal "Default duration in minutes for new event" -int 30
