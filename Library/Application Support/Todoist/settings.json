@@ -3,7 +3,9 @@
 	"show_in_dock": true,
 	"show_in_menu_bar": false,
 	"global_shortcuts": {
-		"quick_add": "Ctrl+Shift+Cmd+Alt+t"
+		"activate": "Control+Cmd+T",
+		"quick_add": "Alt+Space",
+		"quick_add_ramble": "Shift+Alt+Space"
 	},
 	"open_on_system_startup": true,
 	"system_startup_minimized": false

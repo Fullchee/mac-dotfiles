@@ -102,8 +102,9 @@ mas install 937984704;  # Amphetamine: keep mac working
 mas install 1352778147; # BitWarden: app store version has more features, like TouchID
 # mas install 1355679052; # Dropover: shake cursor when dragging files to bundle them
 mas install 540348655;  # Monosnap
-mas install 1122008420; # TableTool, view CSVs
 mas install 1521432881; # Session (pomodoro timer)
+mas install 1406676254; # Splice Crop: crop the middle of an image
+mas install 1122008420; # TableTool, view CSVs
 
 ### Calendar
 defaults write com.apple.iCal "Default duration in minutes for new event" -int 30
